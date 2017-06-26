@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		394A75F51EFEB6090036ACB0 /* Wall.sks in Resources */ = {isa = PBXBuildFile; fileRef = 394A75F41EFEB6090036ACB0 /* Wall.sks */; };
+		394A75F71EFEB7620036ACB0 /* Room.sks in Resources */ = {isa = PBXBuildFile; fileRef = 394A75F61EFEB7620036ACB0 /* Room.sks */; };
 		822D880B1EA0599F00A54A34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822D880A1EA0599F00A54A34 /* AppDelegate.swift */; };
 		822D880D1EA0599F00A54A34 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 822D880C1EA0599F00A54A34 /* GameScene.sks */; };
 		822D88111EA0599F00A54A34 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822D88101EA0599F00A54A34 /* GameScene.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		394A75F41EFEB6090036ACB0 /* Wall.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Wall.sks; path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/Wall.sks"; sourceTree = "<group>"; };
+		394A75F61EFEB7620036ACB0 /* Room.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Room.sks; sourceTree = "<group>"; };
 		822D88071EA0599F00A54A34 /* Fear-The-Dead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fear-The-Dead.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		822D880A1EA0599F00A54A34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		822D880C1EA0599F00A54A34 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				822D880C1EA0599F00A54A34 /* GameScene.sks */,
+				394A75F41EFEB6090036ACB0 /* Wall.sks */,
+				394A75F61EFEB7620036ACB0 /* Room.sks */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -145,7 +151,6 @@
 				TargetAttributes = {
 					822D88061EA0599F00A54A34 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = 3E7TCD55JT;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -174,7 +179,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				82EA0D071EA0683200E8D690 /* LaunchScreen.xib in Resources */,
+				394A75F51EFEB6090036ACB0 /* Wall.sks in Resources */,
 				822D88471EA0660100A54A34 /* fear_moan.wav in Resources */,
+				394A75F71EFEB7620036ACB0 /* Room.sks in Resources */,
 				822D88491EA0660100A54A34 /* fear_win.mp3 in Resources */,
 				822D88461EA0660100A54A34 /* fear_lose.mp3 in Resources */,
 				82EA0D091EA06A7800E8D690 /* Assets.xcassets in Resources */,
@@ -311,7 +318,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3E7TCD55JT;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Fear-The-Dead/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.razeware.Fear-The-Dead";
@@ -324,7 +331,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3E7TCD55JT;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Fear-The-Dead/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.razeware.Fear-The-Dead";
