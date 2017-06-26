@@ -48,10 +48,16 @@ class GameScene: SKScene {
     physicsWorld.contactDelegate = self
     // Set up player
     player = childNode(withName: "player") as? SKSpriteNode
+    listener = player
     // Set up zombies
-    for child in self.children {
+    for child in children {
         if child.name == "zombie" {
             if let child = child as? SKSpriteNode {
+                
+                // Add SKAudioNode to zombie
+                let audioNode = SKAudioNode(fileNamed: "fear_moan.wav")
+                child.addChild(audioNode)
+                
                 zombies.append(child)
             }
         }
