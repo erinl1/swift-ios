@@ -1,2 +1,2 @@
 # swift-ios
-beginning code for swift language
+beginning code for swift language and ios use.
