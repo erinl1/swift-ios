@@ -20,9 +20,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var clickQuestion: Int = 0
     var clickAnswer: Int = 0
     
-    let questions: [String] = ["hola", "como estas?", "comer", "la mesa"]
-    let answers: [String] = ["hello", "how are you?", "to eat", "the table"]
-
+    let questions: [String] = ["caminar", "querer", "preferir", "piensar", "tener", "enseñar", "llegar", "contestar", "preparar", "gustar", "encantar", "interesar", "doler (duele)", "abburir" ]
+    let answers: [String] = ["to walk", "to want", "to prefer", "to think", "to have", "to teach or show", "to arrive", "to answer", "to prepare", "to like", "to be pleasing", "to be interesting to", "to hurt", "to bore" ]
+ 
     
     @IBAction func showAnswer(_ sender: Any) {
         print("Erin Lee")
