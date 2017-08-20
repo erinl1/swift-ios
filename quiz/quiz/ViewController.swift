@@ -22,13 +22,34 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     let questions: [String] = ["hola", "como estas?", "comer", "la mesa"]
     let answers: [String] = ["hello", "how are you?", "to eat", "the table"]
+
+    
     @IBAction func showAnswer(_ sender: Any) {
-        answerLabel.text = answers[clickAnswer]
-        answerLabel.font = UIFont.boldSystemFont(ofSize: 25)
         print("Erin Lee")
-        let alertController = UIAlertController(title:"Answer", message: answers[clickAnswer], preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-        self.present(alertController, animated: true, completion: nil)
+        if String(switchToggle.isOn) == "true" {
+            print("switch!")
+            answerLabel.text = answers[clickAnswer]
+            answerLabel.font = UIFont.boldSystemFont(ofSize: 25)
+            clickAnswer = clickAnswer + 1
+            if clickAnswer >= answers.count {
+                clickAnswer = 0
+            }
+        }
+        else if String(switchToggle.isOn) == "false" {
+            print("switch!")
+            answerLabel.text = questions[clickQuestion]
+            answerLabel.font = UIFont.boldSystemFont(ofSize: 25)
+            clickQuestion = clickQuestion + 1
+            if clickQuestion >= questions.count {
+                clickQuestion = 0
+            }
+        }
+
+        //ALERT
+        //let alertController = UIAlertController(title:"Answer", message: answers[clickAnswer], preferredStyle: .alert)
+        //alertController.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+        //self.present(alertController, animated: true, completion: nil)
+        
         clickAnswer = clickAnswer + 1
         if clickAnswer >= answers.count {
             clickAnswer = 0
@@ -37,25 +58,56 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func showQuestion(_ sender: Any) {
         print("What is my name?")
-        questionLabel.text = questions[clickQuestion]
-        questionLabel.font = UIFont.boldSystemFont(ofSize: 25)
-        clickQuestion = clickQuestion + 1
-        if clickQuestion >= questions.count {
-            clickQuestion = 0
+        print(switchToggle.isOn)
+        if String(switchToggle.isOn) == "false" {
+            print("switch!")
+            questionLabel.text = answers[clickAnswer]
+            questionLabel.font = UIFont.boldSystemFont(ofSize: 25)
+            clickAnswer = clickAnswer + 1
+            if clickAnswer >= answers.count {
+                clickAnswer = 0
+            }
+            
         }
+        else if String(switchToggle.isOn) == "true" {
+            print("switch!")
+            questionLabel.text = questions[clickQuestion]
+            questionLabel.font = UIFont.boldSystemFont(ofSize: 25)
+            clickQuestion = clickQuestion + 1
+            if clickQuestion >= questions.count {
+                clickQuestion = 0
+            }
+        }
+        
     }
     @IBAction func clickRandom(_ sender: Any) {
         let rand: Int = Int(arc4random_uniform(UInt32(questions.count)))
-        questionLabel.text = questions[rand]
-        questionLabel.font = UIFont.boldSystemFont(ofSize: 25)
-        answerLabel.text = answers[rand]
-        answerLabel.font = UIFont.boldSystemFont(ofSize: 25)
+        if String(switchToggle.isOn) == "true" {
+            questionLabel.text = questions[rand]
+            questionLabel.font = UIFont.boldSystemFont(ofSize: 25)
+            answerLabel.text = answers[rand]
+            answerLabel.font = UIFont.boldSystemFont(ofSize: 25)
+        }
+        else if String(switchToggle.isOn) == "false" {
+            answerLabel.text = questions[rand]
+            answerLabel.font = UIFont.boldSystemFont(ofSize: 25)
+            questionLabel.text = answers[rand]
+            questionLabel.font = UIFont.boldSystemFont(ofSize: 25)
+        }
     }
     
     @IBAction func changeQuestion(_ sender: Any) {
-        let value:Int = Int(questionTextField.text!)!
-        questionLabel.text = questions[value-1]
-        answerLabel.text = answers[value-1]
+        
+        if String(switchToggle.isOn) == "true" {
+            let value:Int = Int(questionTextField.text!)!
+            questionLabel.text = questions[value-1]
+            answerLabel.text = answers[value-1]
+        }
+        else if String(switchToggle.isOn) == "false" {
+            let value:Int = Int(questionTextField.text!)!
+            answerLabel.text = questions[value-1]
+            questionLabel.text = answers[value-1]
+        }
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print("this works")
@@ -69,12 +121,32 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func switchToggle(_ sender: UISwitch) {
         print(sender.isOn)
+        if String(switchToggle.isOn) == "false" {
+            let qLabel: String = questionLabel.text!
+            let aLabel: String = answerLabel.text!
+            questionLabel.text = aLabel
+            answerLabel.text = qLabel
+
+        }
+        else if String(switchToggle.isOn) == "true" {
+            let qLabel: String = questionLabel.text!
+            let aLabel: String = answerLabel.text!
+            answerLabel.text = qLabel
+            questionLabel.text = aLabel
+        }
     }
     
     @IBAction func slider(_ sender: Any) {
-        let sliderVal: Int = Int(sliderSwitch.value)
-        questionLabel.text = questions[sliderVal]
-        answerLabel.text = answers[sliderVal]
+        if String(switchToggle.isOn) == "true" {
+            let sliderVal: Int = Int(sliderSwitch.value)
+            questionLabel.text = questions[sliderVal]
+            answerLabel.text = answers[sliderVal]
+        }
+        else if String(switchToggle.isOn) == "false" {
+            let sliderVal: Int = Int(sliderSwitch.value)
+            answerLabel.text = questions[sliderVal]
+            questionLabel.text = answers[sliderVal]
+        }
     }
     
     override func viewDidLoad() {
