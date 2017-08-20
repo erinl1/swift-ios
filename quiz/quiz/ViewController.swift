@@ -16,10 +16,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var questionTextField: UITextField!
     @IBOutlet weak var switchToggle: UISwitch!
     @IBOutlet weak var sliderSwitch: UISlider!
-
+    @IBOutlet weak var progressView: UIProgressView!
     var clickQuestion: Int = 0
     var clickAnswer: Int = 0
-    
     let questions: [String] = ["caminar", "querer", "preferir", "piensar", "tener", "enseñar", "llegar", "contestar", "preparar", "tomar", "gustar", "encantar", "interesar", "doler (duele)", "abburir", "(a la) izquierda (de)", "(a la) derecha (de)", "derecho", "entre", "hasta" ]
     let answers: [String] = ["to walk", "to want", "to prefer", "to think", "to have", "to teach or show", "to arrive", "to answer", "to prepare", "to take", "to like", "to be pleasing", "to be interesting to", "to hurt", "to bore", "to the left", "to the right", "straight ahead", "between", "until" ]
  
@@ -41,7 +40,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //let alertController = UIAlertController(title:"Answer", message: answers[clickAnswer], preferredStyle: .alert)
         //alertController.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
         //self.present(alertController, animated: true, completion: nil)
-        
+        sliderSwitch.value = Float(clickAnswer)
+        progressView.progress = Float((clickAnswer)/(answers.count))
         clickAnswer = clickAnswer + 1
         if clickAnswer >= answers.count {
             clickAnswer = 0
@@ -64,6 +64,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             questionLabel.font = UIFont.boldSystemFont(ofSize: 25)
             
         }
+        sliderSwitch.value = Float(clickQuestion)
+        progressView.progress = Float((clickQuestion)/(questions.count))
         clickQuestion = clickQuestion + 1
         if clickQuestion >= questions.count {
             clickQuestion = 0
@@ -77,12 +79,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
             questionLabel.font = UIFont.boldSystemFont(ofSize: 25)
             answerLabel.text = answers[rand]
             answerLabel.font = UIFont.boldSystemFont(ofSize: 25)
+            sliderSwitch.value = Float(rand)
         }
         else if String(switchToggle.isOn) == "false" {
             answerLabel.text = questions[rand]
             answerLabel.font = UIFont.boldSystemFont(ofSize: 25)
             questionLabel.text = answers[rand]
             questionLabel.font = UIFont.boldSystemFont(ofSize: 25)
+            sliderSwitch.value = Float(rand)
         }
     }
     
@@ -92,11 +96,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
             let value:Int = Int(questionTextField.text!)!
             questionLabel.text = questions[value-1]
             answerLabel.text = answers[value-1]
+            sliderSwitch.value = Float(value-1)
         }
         else if String(switchToggle.isOn) == "false" {
             let value:Int = Int(questionTextField.text!)!
             answerLabel.text = questions[value-1]
             questionLabel.text = answers[value-1]
+            sliderSwitch.value = Float(value-1)
         }
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -131,17 +137,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
             let sliderVal: Int = Int(sliderSwitch.value)
             questionLabel.text = questions[sliderVal]
             answerLabel.text = answers[sliderVal]
+            sliderSwitch.value = Float(sliderVal)
         }
         else if String(switchToggle.isOn) == "false" {
             let sliderVal: Int = Int(sliderSwitch.value)
             answerLabel.text = questions[sliderVal]
             questionLabel.text = answers[sliderVal]
+            sliderSwitch.value = Float(sliderVal)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         sliderSwitch.maximumValue = Float(questions.count-1)
+        progressView.progress = 0
         // Do any additional setup after loading the view, typically from a nib.
     }
 
