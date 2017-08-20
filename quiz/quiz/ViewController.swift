@@ -17,6 +17,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var switchToggle: UISwitch!
     @IBOutlet weak var sliderSwitch: UISlider!
     @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var questionButton: UIButton!
+    @IBOutlet weak var answerButton: UIButton!
     var clickQuestion: Int = 0
     var clickAnswer: Int = 0
     let questions: [String] = ["caminar", "querer", "preferir", "piensar", "tener", "enseñar", "llegar", "contestar", "preparar", "tomar", "gustar", "encantar", "interesar", "doler (duele)", "abburir", "(a la) izquierda (de)", "(a la) derecha (de)", "derecho", "entre", "hasta" ]
@@ -29,12 +31,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if String(switchToggle.isOn) == "true" {
             print("switch!")
             answerLabel.text = answers[clickAnswer]
-            answerLabel.font = UIFont.boldSystemFont(ofSize: 25)
         }
         else if String(switchToggle.isOn) == "false" {
             print("switch!")
             answerLabel.text = questions[clickQuestion - 1]
-            answerLabel.font = UIFont.boldSystemFont(ofSize: 25)
             
         }
         //ALERT
@@ -42,10 +42,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //alertController.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
         //self.present(alertController, animated: true, completion: nil)
         sliderSwitch.value = Float(clickAnswer)
+        questionButton.isEnabled = true
         clickAnswer = clickAnswer + 1
         if clickAnswer >= answers.count {
             clickAnswer = 0
         }
+        answerButton.isEnabled = false
     }
     
     @IBAction func showQuestion(_ sender: Any) {
@@ -55,38 +57,34 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if String(switchToggle.isOn) == "false" {
             print("switch!")
             questionLabel.text = answers[clickAnswer]
-            questionLabel.font = UIFont.boldSystemFont(ofSize: 25)
             
             
         }
         else if String(switchToggle.isOn) == "true" {
             print("switch!")
             questionLabel.text = questions[clickQuestion]
-            questionLabel.font = UIFont.boldSystemFont(ofSize: 25)
             
         }
         sliderSwitch.value = Float(clickQuestion)
         progressView.progress = Float((clickQuestion)/(questions.count))
         clickQuestion = clickQuestion + 1
+        answerButton.isEnabled = true
         if clickQuestion >= questions.count {
             clickQuestion = 0
         }
+        questionButton.isEnabled = false
         
     }
     @IBAction func clickRandom(_ sender: Any) {
         let rand: Int = Int(arc4random_uniform(UInt32(questions.count)))
         if String(switchToggle.isOn) == "true" {
             questionLabel.text = questions[rand]
-            questionLabel.font = UIFont.boldSystemFont(ofSize: 25)
             answerLabel.text = answers[rand]
-            answerLabel.font = UIFont.boldSystemFont(ofSize: 25)
             sliderSwitch.value = Float(rand)
         }
         else if String(switchToggle.isOn) == "false" {
             answerLabel.text = questions[rand]
-            answerLabel.font = UIFont.boldSystemFont(ofSize: 25)
             questionLabel.text = answers[rand]
-            questionLabel.font = UIFont.boldSystemFont(ofSize: 25)
             sliderSwitch.value = Float(rand)
         }
     }
@@ -160,6 +158,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         sliderSwitch.maximumValue = Float(questions.count-1)
         progressView.progress = 0
+        answerButton.isEnabled = false
         // Do any additional setup after loading the view, typically from a nib.
     }
 

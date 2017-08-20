@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -39,7 +39,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gg-Ek-2eq">
-                                <rect key="frame" x="115" y="341" width="145" height="35"/>
+                                <rect key="frame" x="115" y="341" width="145" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
                                 <state key="normal" title="Show Answer"/>
@@ -121,8 +121,10 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="answerButton" destination="1gg-Ek-2eq" id="LWD-Sx-M4h"/>
                         <outlet property="answerLabel" destination="k5N-Qk-tzm" id="0mp-kV-da8"/>
                         <outlet property="progressView" destination="4Qg-Tu-GJQ" id="oeK-5W-o4K"/>
+                        <outlet property="questionButton" destination="Ckr-01-Mrt" id="h3q-q4-1Kt"/>
                         <outlet property="questionLabel" destination="XMb-rg-zyk" id="5OL-Ix-KBX"/>
                         <outlet property="questionTextField" destination="Lgf-Ob-mNP" id="DWC-9l-reb"/>
                         <outlet property="sliderSwitch" destination="pgv-Oe-ktR" id="CAw-yK-mUX"/>
