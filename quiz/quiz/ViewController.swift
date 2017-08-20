@@ -20,8 +20,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var clickQuestion: Int = 0
     var clickAnswer: Int = 0
     
-    let questions: [String] = ["caminar", "querer", "preferir", "piensar", "tener", "enseñar", "llegar", "contestar", "preparar", "gustar", "encantar", "interesar", "doler (duele)", "abburir" ]
-    let answers: [String] = ["to walk", "to want", "to prefer", "to think", "to have", "to teach or show", "to arrive", "to answer", "to prepare", "to like", "to be pleasing", "to be interesting to", "to hurt", "to bore" ]
+    let questions: [String] = ["caminar", "querer", "preferir", "piensar", "tener", "enseñar", "llegar", "contestar", "preparar", "tomar", "gustar", "encantar", "interesar", "doler (duele)", "abburir", "(a la) izquierda (de)", "(a la) derecha (de)", "derecho", "entre", "hasta" ]
+    let answers: [String] = ["to walk", "to want", "to prefer", "to think", "to have", "to teach or show", "to arrive", "to answer", "to prepare", "to take", "to like", "to be pleasing", "to be interesting to", "to hurt", "to bore", "to the left", "to the right", "straight ahead", "between", "until" ]
  
     
     @IBAction func showAnswer(_ sender: Any) {
@@ -30,21 +30,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
             print("switch!")
             answerLabel.text = answers[clickAnswer]
             answerLabel.font = UIFont.boldSystemFont(ofSize: 25)
-            clickAnswer = clickAnswer + 1
-            if clickAnswer >= answers.count {
-                clickAnswer = 0
-            }
         }
         else if String(switchToggle.isOn) == "false" {
             print("switch!")
-            answerLabel.text = questions[clickQuestion]
+            answerLabel.text = questions[clickQuestion - 1]
             answerLabel.font = UIFont.boldSystemFont(ofSize: 25)
-            clickQuestion = clickQuestion + 1
-            if clickQuestion >= questions.count {
-                clickQuestion = 0
-            }
+            
         }
-
         //ALERT
         //let alertController = UIAlertController(title:"Answer", message: answers[clickAnswer], preferredStyle: .alert)
         //alertController.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
@@ -63,20 +55,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
             print("switch!")
             questionLabel.text = answers[clickAnswer]
             questionLabel.font = UIFont.boldSystemFont(ofSize: 25)
-            clickAnswer = clickAnswer + 1
-            if clickAnswer >= answers.count {
-                clickAnswer = 0
-            }
+            
             
         }
         else if String(switchToggle.isOn) == "true" {
             print("switch!")
             questionLabel.text = questions[clickQuestion]
             questionLabel.font = UIFont.boldSystemFont(ofSize: 25)
-            clickQuestion = clickQuestion + 1
-            if clickQuestion >= questions.count {
-                clickQuestion = 0
-            }
+            
+        }
+        clickQuestion = clickQuestion + 1
+        if clickQuestion >= questions.count {
+            clickQuestion = 0
         }
         
     }
