@@ -25,6 +25,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func showAnswer(_ sender: Any) {
         print("Erin Lee")
+        print(clickAnswer)
         if String(switchToggle.isOn) == "true" {
             print("switch!")
             answerLabel.text = answers[clickAnswer]
@@ -41,7 +42,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //alertController.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
         //self.present(alertController, animated: true, completion: nil)
         sliderSwitch.value = Float(clickAnswer)
-        progressView.progress = Float((clickAnswer)/(answers.count))
         clickAnswer = clickAnswer + 1
         if clickAnswer >= answers.count {
             clickAnswer = 0
@@ -51,6 +51,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func showQuestion(_ sender: Any) {
         print("What is my name?")
         print(switchToggle.isOn)
+        answerLabel.text = "?"
         if String(switchToggle.isOn) == "false" {
             print("switch!")
             questionLabel.text = answers[clickAnswer]
@@ -97,12 +98,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
             questionLabel.text = questions[value-1]
             answerLabel.text = answers[value-1]
             sliderSwitch.value = Float(value-1)
+            clickQuestion = Int(value-1)
+            clickAnswer = Int(value-1)
         }
         else if String(switchToggle.isOn) == "false" {
             let value:Int = Int(questionTextField.text!)!
             answerLabel.text = questions[value-1]
             questionLabel.text = answers[value-1]
             sliderSwitch.value = Float(value-1)
+            clickQuestion = Int(value-1)
+            clickAnswer = Int(value-1)
         }
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -138,15 +143,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
             questionLabel.text = questions[sliderVal]
             answerLabel.text = answers[sliderVal]
             sliderSwitch.value = Float(sliderVal)
+            clickQuestion = sliderVal
+            clickAnswer = sliderVal
+            print(clickQuestion)
         }
         else if String(switchToggle.isOn) == "false" {
             let sliderVal: Int = Int(sliderSwitch.value)
             answerLabel.text = questions[sliderVal]
             questionLabel.text = answers[sliderVal]
             sliderSwitch.value = Float(sliderVal)
+            clickQuestion = sliderVal
+            clickAnswer = sliderVal
         }
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         sliderSwitch.maximumValue = Float(questions.count-1)
