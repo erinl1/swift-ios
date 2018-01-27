@@ -12,6 +12,7 @@
 		397D557F201BF2F200DE088D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 397D557D201BF2F200DE088D /* Main.storyboard */; };
 		397D5581201BF2F200DE088D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 397D5580201BF2F200DE088D /* Assets.xcassets */; };
 		397D5584201BF2F200DE088D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 397D5582201BF2F200DE088D /* LaunchScreen.storyboard */; };
+		397D558C201C068C00DE088D /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D558B201C068C00DE088D /* DetailedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		397D5580201BF2F200DE088D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		397D5583201BF2F200DE088D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		397D5585201BF2F200DE088D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		397D558B201C068C00DE088D /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				397D5579201BF2F200DE088D /* AppDelegate.swift */,
 				397D557B201BF2F200DE088D /* ViewController.swift */,
 				397D557D201BF2F200DE088D /* Main.storyboard */,
+				397D558B201C068C00DE088D /* DetailedViewController.swift */,
 				397D5580201BF2F200DE088D /* Assets.xcassets */,
 				397D5582201BF2F200DE088D /* LaunchScreen.storyboard */,
 				397D5585201BF2F200DE088D /* Info.plist */,
@@ -138,6 +141,7 @@
 			files = (
 				397D557C201BF2F200DE088D /* ViewController.swift in Sources */,
 				397D557A201BF2F200DE088D /* AppDelegate.swift in Sources */,
+				397D558C201C068C00DE088D /* DetailedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
